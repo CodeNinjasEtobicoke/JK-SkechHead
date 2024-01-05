@@ -13,7 +13,7 @@ public class PlayerControls : MonoBehaviour
     public float movementSpeed = 10f;
     [Header("Default Directional Movement Speed")]
     public float movement = 0f;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +33,21 @@ public class PlayerControls : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().flipX = true;
         }
+
+
+    }
+
+    void FixedUpdate()
+    {
+        Vector2 velocity = rb.velocity;
+        velocity.x = movement;
+        rb.velocity = velocity;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        rb.velocity = new Vector3(rb.velocity.x, downSpeed, 0);
     }
 }
+
+    
