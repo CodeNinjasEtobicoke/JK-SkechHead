@@ -32,11 +32,10 @@ public class GameController : MonoBehaviour
     void SpawnPlatforms()
     {
         Instantiate(platform, new Vector3(Random.value * 10 - 5f, pos, 0.5f), Quaternion.identity);
-        pos += 7.5f;
+        pos += 6f;
     }
     public void GameOver()
     {
         gameOverCanvas.SetActive(true);
     }
-
 }
