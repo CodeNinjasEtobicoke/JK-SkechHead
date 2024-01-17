@@ -10,7 +10,9 @@ public class GameController : MonoBehaviour
     public GameObject gameOverCanvas;
     [Header("platform Object")]
     public GameObject platform;
+    public GameObject FakePlatform;
     float pos = 0;
+    float FakePos = 0;
 
 
     // Start is called before the first frame update
@@ -32,7 +34,10 @@ public class GameController : MonoBehaviour
     void SpawnPlatforms()
     {
         Instantiate(platform, new Vector3(Random.value * 10 - 5f, pos, 0.5f), Quaternion.identity);
-        pos += 6f;
+        pos += 4f;
+        Instantiate(FakePlatform, new Vector3(Random.value * 10 - 5f, pos, 0.5f), Quaternion.identity);
+        FakePos += 4f;
+
     }
     public void GameOver()
     {
